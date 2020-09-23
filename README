@@ -1,0 +1,88 @@
+Detailed instructions on how to get Milestone 1 working
+
+pip install tweepy(name of API)
+# we need tweepy to gather tweets from Twitter
+
+apply for twitter developer account once approved note down the consumer key, secret key, token, secret token
+
+you don't want to put those keys in your main py file as anyone that has access to those keys can get access to your twitter account.
+
+Solution: put all keys in an .env file and link them with the main py file (milestone1.py)
+
+using os.environ put in all the keys to respective variables
+
+Twitter uses OAuthHandler to authenticate keys make sure you import all necessary libraries
+ex: tweepy, webbrowser, time flask, os, random, dotenv, join from os.path, OAuthHandler from tweepy, Cursor from tweepy, datetime, date, time, timeDelta from datetime
+
+Now it's time create simple flask application
+
+app = flask.Flask(__name__)
+ 
+@app.route('/')
+
+line 19 and line 21 create a simmple flask application
+
+Now create a function where you implement all tweepy functions needed for milestone 1
+
+create a list with 10 or so food items
+
+using the random module choose a random item from the above list
+
+Now using search function find all tweets related to that random item
+
+You will receive thousands of tweets. Choose a random tweet by indexing a random number and that will be your tweet that you will display
+
+use .created_at to find the time/date of when it was tweeted
+
+use user.screen_name to find the screen name of who tweeted it
+
+use user.name to find the actuall name of the person who tweeted it
+
+use user.url to find the link of the tweet 
+
+Make sure all above are stored in some variable
+
+Now when returning for the function make sure to use flask.render_template() with index.html as the first parameter and the above variables just created followed by that
+
+make sure to put var=var when doing it though for each one
+
+ex: text = text,
+    date = date,
+
+
+/////// Index.html Info /////////
+
+create proper html format
+
+link CSS file using the link tag # More info on the CSS Part Below
+
+Now those variables that you made in the .py file display them in the html by using {{ var }} with var == to whatever variable you need to put there
+
+
+/// CSS info ///
+
+Create separate CSS stylesheet make sure to put in a directory that is in the Project 1 Folder 
+
+Use Below line to link CSS style sheet with HTML 
+
+<link rel="stylesheet" href= {{ url_for('static',filename='style.css') }} />
+
+for each parts of the html style however you like 
+
+ex: 
+
+body {
+
+  some style
+  
+  
+}
+
+p {
+
+
+  some style
+  
+}
+
+
